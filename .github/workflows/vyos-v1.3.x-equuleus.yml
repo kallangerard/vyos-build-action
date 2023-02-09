@@ -1,6 +1,7 @@
 name: VyOS v1.3.x LTS Release
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v1.3.*'
@@ -91,6 +92,8 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Download Artifacts
